@@ -66,7 +66,6 @@ public class VkVideoTests {
 
     private static DesiredCapabilities getCapabilities() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-
         capabilities.setCapability("appium:platformName", "Android");
         capabilities.setCapability("appium:deviceName", "Pixel4");
         capabilities.setCapability("appium:platformVersion", "11");
