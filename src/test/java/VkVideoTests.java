@@ -29,7 +29,8 @@ public class VkVideoTests {
         capabilities.setCapability("appium:deviceName", "Pixel4");
         capabilities.setCapability("appium:platformVersion", "11");
         capabilities.setCapability("appium:automationName", "UiAutomator2");
-        capabilities.setCapability("appium:app", "D:\\Downloads\\VK-Video-v1.136.apk");
+        //указать корректный полный путь до VK-Video-v1.136.apk
+        capabilities.setCapability("appium:app", "...VK-Video-v1.136.apk");
 
         driver = new AndroidDriver(new URI("http://127.0.0.1:4723").toURL(), capabilities);
 
@@ -79,7 +80,7 @@ public class VkVideoTests {
 
     @Test
     @DisplayName("Видео проигрывается")
-    public void playVideoTest() throws InterruptedException {
+    void playVideoTest() throws InterruptedException {
         try {
             log.info("Смотрим изменение прогресса, кликая на видео для появления прогрессбара");
             WebElement video_display = driver.findElement(By.id("com.vk.vkvideo:id/video_display"));
@@ -101,7 +102,7 @@ public class VkVideoTests {
 
     @Test
     @DisplayName("Видео не проигрывается")
-    public void notPlayVideoTest() throws InterruptedException {
+    void notPlayVideoTest() throws InterruptedException {
         try {
             log.info("Ставим на паузу");
             WebElement video_display = driver.findElement(By.id("com.vk.vkvideo:id/video_display"));
