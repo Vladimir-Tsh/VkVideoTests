@@ -23,15 +23,7 @@ public class VkVideoTests {
 
     @BeforeAll
     static void setUp() throws URISyntaxException, MalformedURLException, InterruptedException {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-
-        capabilities.setCapability("appium:platformName", "Android");
-        capabilities.setCapability("appium:deviceName", "Pixel4");
-        capabilities.setCapability("appium:platformVersion", "11");
-        capabilities.setCapability("appium:automationName", "UiAutomator2");
-        //указать корректный полный путь до VK-Video-v1.136.apk
-        capabilities.setCapability("appium:app", "...VK-Video-v1.136.apk");
-
+        DesiredCapabilities capabilities = getCapabilities();
         driver = new AndroidDriver(new URI("http://127.0.0.1:4723").toURL(), capabilities);
 
         log.info("Приложение загружается...");
@@ -70,6 +62,18 @@ public class VkVideoTests {
         WebElement video_display = driver.findElement(By.id("com.vk.vkvideo:id/video_display"));
         video_display.click();
         sleep(10000);
+    }
+
+    private static DesiredCapabilities getCapabilities() {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+
+        capabilities.setCapability("appium:platformName", "Android");
+        capabilities.setCapability("appium:deviceName", "Pixel4");
+        capabilities.setCapability("appium:platformVersion", "11");
+        capabilities.setCapability("appium:automationName", "UiAutomator2");
+        //указать корректный полный путь до VK-Video-v1.136.apk
+        capabilities.setCapability("appium:app", "...VK-Video-v1.136.apk");
+        return capabilities;
     }
 
     @AfterAll
